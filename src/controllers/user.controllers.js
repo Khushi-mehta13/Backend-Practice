@@ -175,8 +175,8 @@ return res.status(200)
             secure: true // For security purposes
         };
         await User.findByIdAndUpdate(req.user._id, {
-            $set: {
-                refreshToken: undefined
+            $unset: {
+                refreshToken: 1
             }
         }, {
             new: true
